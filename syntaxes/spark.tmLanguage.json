@@ -1,0 +1,188 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Spark",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#meta"
+		},
+		{
+			"include": "#functions"
+		},
+		{
+			"include": "#languages"
+		},
+		{
+			"include": "#comments"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [{
+				"name": "comment.line.spark",
+				"match": "//.*"
+			},
+			{
+				"name": "comment.block.spark",
+				"begin": "/\\*",
+				"end": "\\*/"
+			}]
+		},
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.spark",
+				"match": "\\b(define|component|declare|public)\\b"
+			},
+			{
+				"name": "keyword.control.directive.spark",
+				"match": "@\\w+"
+			}]
+		},
+		"languages": {
+			"patterns": [
+				{
+					"name": "meta.embedded.block.html",
+					"begin": "(?<!\\w)(!html)(\\s*\\{)",
+					"beginCaptures": {
+						"1": {
+							"name": "keyword.control.html"
+						},
+						"2": {
+							"name": "punctuation.definition.block.begin.html"
+						}
+					},
+					"end": "\\}",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.block.end.html"
+						}
+					},
+					"patterns": [
+						{
+							"include": "text.html.basic"
+						}
+					]
+				},
+				{
+					"name": "meta.embedded.block.javascript",
+					"begin": "(?<!\\w)(!javascript)(\\s*\\{)",
+					"beginCaptures": {
+						"1": {
+							"name": "keyword.control.javascript"
+						},
+						"2": {
+							"name": "punctuation.definition.block.begin.javascript"
+						}
+					},
+					"end": "\\}",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.block.end.javascript"
+						}
+					},
+					"patterns": [
+						{
+							"include": "source.js"
+						}
+					]
+				},
+				{
+					"name": "meta.embedded.block.css",
+					"begin": "(?<!\\w)(!css)(\\s*\\{)",
+					"beginCaptures": {
+						"1": {
+							"name": "keyword.control.css"
+						},
+						"2": {
+							"name": "punctuation.definition.block.begin.css"
+						}
+					},
+					"end": "\\}",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.block.end.css"
+						}
+					},
+					"patterns": [
+						{
+							"include": "source.css"
+						}
+					]
+				}
+			]
+		},
+		"functions": {
+			"patterns": [{
+				"name": "entity.name.function.spark",
+				"match": "\\b\\w+\\s*(?=\\()"
+			},
+			{
+				"name": "meta.embedded.block.javascript",
+				"begin": "(?<!\\w)(script)(\\s*\\{)",
+				"beginCaptures": {
+					"1": {
+						"name": "entity.name.function.spark"
+					},
+					"2": {
+						"name": "punctuation.definition.block.begin.javascript"
+					}
+				},
+				"end": "\\}",
+				"endCaptures": {
+					"0": {
+						"name": "punctuation.definition.block.end.javascript"
+					}
+				},
+				"patterns": [
+					{
+						"include": "source.js"
+					}
+				]
+			},
+			{
+				"name": "entity.name.function.spark",
+				"match": "\\b\\w+\\s*(?=\\{)"
+			}
+			]
+		},
+		"meta": {
+			"patterns": [{
+				"name": "markup.inline.raw.spark",
+				"match": "\\b\\w+\\s*:"
+			},
+			{
+				"name": "markup.italic.spark",
+				"match": "<\\w+>"
+			}]
+		},
+		"numbers": {
+			"patterns": [{
+				"name": "constant.numeric.spark",
+				"match": "\\b(\\d+(\\.\\d*)?|\\.\\d+)([eE][+-]?\\d+)?\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.spark",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.spark",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.spark"
+}
