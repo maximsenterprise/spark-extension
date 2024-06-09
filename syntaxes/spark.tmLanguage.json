@@ -42,7 +42,7 @@
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.spark",
-				"match": "\\b(define|component|declare|public)\\b"
+				"match": "\\b(define|component|declare|public|use)\\b"
 			},
 			{
 				"name": "keyword.control.directive.spark",
