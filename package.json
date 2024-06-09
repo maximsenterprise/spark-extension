@@ -1,0 +1,35 @@
+{
+  "name": "spark",
+  "displayName": "Spark, better HTML",
+  "description": "Full support for the Spark Programming Language",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "spark",
+        "aliases": [
+          "Spark",
+          "spark"
+        ],
+        "extensions": [
+          ".spark",
+          ".sk"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "spark",
+        "scopeName": "source.spark",
+        "path": "./syntaxes/spark.tmLanguage.json"
+      }
+    ]
+  }
+}
