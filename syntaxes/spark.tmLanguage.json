@@ -119,6 +119,52 @@
 							"include": "source.css"
 						}
 					]
+				},
+				{
+					"name": "meta.embedded.block.css",
+					"begin": "(?<!\\w)(\\))(\\s*\\[)",
+					"beginCaptures": {
+						"1": {
+							"name": "keyword.control.css"
+						},
+						"2": {
+							"name": "punctuation.definition.block.begin.css"
+						}
+					},
+					"end": "\\]",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.block.end.css"
+						}
+					},
+					"patterns": [
+						{
+							"include": "source.css"
+						}
+					]
+				},
+				{
+					"name": "meta.embedded.block.css",
+					"begin": "<\\w+>\\s*\\[",
+					"beginCaptures": {
+						"1": {
+							"name": "markup.italic.spark"
+						},
+						"2": {
+							"name": "punctuation.definition.block.begin.css"
+						}
+					},
+					"end": "\\]",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.block.end.css"
+						}
+					},
+					"patterns": [
+						{
+							"include": "source.css"
+						}
+					]
 				}
 			]
 		},
